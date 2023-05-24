@@ -11,6 +11,7 @@ public class IU {
     private JLabel eMatricula;
     private JButton button1;
     private JButton button2;
+    private JButton btnBuscar;
 
     public IU() {
         bCrear.addActionListener(new ActionListener() {
@@ -31,7 +32,22 @@ public class IU {
                 Controller.aumentarVelocidad(tMatricula.getText());
             }
         });
+        btnBuscar.addActionListener(new ActionListener() {
+            /**
+             * Cuando se clicka ese boton se ejcuta el metodo y se le manda el texto de matricula
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.buscarCoche(tMatricula.getText());
+            }
+        });
     }
+
+    /**
+     * inicializa la gui
+     */
 
     public static void crearVentana() {
         JFrame frame = new JFrame("Ventana coches");

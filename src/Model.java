@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ * base que hace de gestor de bd
+ */
 public class Model {
     static ArrayList<Coche> parking = new ArrayList<>();
 
@@ -75,4 +78,5 @@ public class Model {
         // retorna la nueva velocidad
         return getCoche(matricula).velocidad;
     }
+
 }
