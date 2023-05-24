@@ -1,21 +1,57 @@
-import java.lang.module.ModuleDescriptor;
-
+/**
+ * se comunica con las clase vista y controlador. tiene el metodo principal
+ */
 public class Controller {
+    static Model miModelo = new Model();
+    static View miVista = new View();
+
+    /**
+     * metodo principal el cual vamos a ejecutar
+     * @param args
+     */
     public static void main(String[] args) {
+        IU.crearVentana();
+    }
 
-        // Crear tres coches
+    /**
+     * se comunica con los objetos de vista y modelo para crear el coche, guardarlo en parking e imprimir un mensaje
+     * indicando el coche que se ha creado
+     *
+     * @param modelo
+     * @param matricula
+     */
+    public static void crearCoche(String modelo, String matricula){
+        Coche aux = miModelo.crearCoche(modelo,matricula);
+        if(aux!=null){
+            miVista.muestraVelocidad(aux.matricula, aux.velocidad);
+        }
+    }
 
-        Model.crearCoche("LaFerrari", "SBC 1234");
-        Model.crearCoche("Alpine", "HYU 4567");
-        Model.crearCoche("Aston Martin", "FGH 3333");
+    /**
+     * Utilizando el objeto de modelo bajo la velocidad del coche y se la mando al objeto de vista el cual la imprimira
+     * @param matricula
+     */
+    public static void bajarVelocidad(String matricula){
+        int aux = miModelo.bajarVelocidad(matricula);
+        miVista.muestraVelocidad(matricula, aux);
+    }
 
-        Coche ferrari = Model.getCoche("SBC 1234");
-        // modifica la velocidad
-        Model.cambiarVelocidad("SBC 1234", 30);
+    /**
+     * Utilizando el objeto de modelo subo la velocidad del coche y se la mando al objeto de vista el cual la imprimira
+     * @param matricula
+     */
+    public static void aumentarVelocidad(String matricula){
+        int aux = miModelo.subirVelocidad(matricula);
+        miVista.muestraVelocidad(matricula,aux);
+    }
 
-        // recoje la velocidad y la muestra (tarea de la View)
-        boolean hecho = View.muestraVelocidad("SBC 1234", Model.getVelocidad("SBC 1234"));
-
-        System.out.println(hecho);
+    /**
+     *  LLamo al metodo de la clase Model que me devolvera objeto coche con el cual accederé a sus atributos para
+     *  mandarselos al objeto de miVista
+     * @param matricula
+     */
+    public static void buscarCoche(String matricula){
+        Coche coche = Model.getCoche(matricula);
+        miVista.mostrarCoche(coche.matricula, coche.modelo, coche.velocidad);
     }
 }
