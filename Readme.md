@@ -97,3 +97,13 @@ sequenceDiagram
     deactivate Controller
     View-->>-Dialog: mostrarVelocidad()
 ```
+
+--------------
+
+## EXAMEN 24/05/23
+
+> Previamente tuve que añadir a la rama angel_v3 los métodos aumentar/bajar
+> velocidad ya que no se subieron a GitHub en su momento. Desde esta
+> rama creo otra llamada 'ex3' que es donde incorporo el código solicitado
+> en el examen. Añado un commit puntualizando el principio de la tarea.
+
