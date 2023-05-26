@@ -34,5 +34,60 @@ mostrarle al usuario el mensaje de advertencia.
 Instancio el Observer `ObsExceso` y lo meto como argumento en 
 `addObserver()` del objeto `Model`.
 
+-----
+## Diagrama de clases
+
+### Diagrama de clases
+```mermaid
+classDiagram
+    class Observable {
+        setChanged()
+        notifyObserver(valor)
+    }
+        class Coche {
+        String: matricula
+        String: modelo
+        Integer: velocidad
+    }
+      class Controller{
+          +main()
+      }
+      class Model {
+          ArrayList~Coche~: parking
+          +crearCoche(String, String, String)
+          +getCoche(String)
+          +cambiarVelocidad(String, Integer)
+          +getVelocidad(String)
+      }
+      class ObsExceso {
+          +update()
+          }
+          Controller "1" *-- "1" ObsExceso: association
+          Controller "1" *-- "1" Model : association
+    Model "1" *-- "1..n" Coche : association
+    Observable <|-- Model
+      
+```
+### Diagrama de frecuencia
+```mermaid
+sequenceDiagram
+    participant View
+    box gray Controlador
+    participant Controller
+    participant ObsExceso
+    end
+    participant Model
+
+    Controller->>Model: subirVelocidad()
+    activate Model
+    Model->>ObserverVelocidad: update()
+    deactivate Model
+    activate ObserverVelocidad
+    ObserverVelocidad->>+View: muestraExceso
+    deactivate ObserverVelocidad
+    activate View
+    View->>-View: sout
+    deactivate View
+```
 
 
