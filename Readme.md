@@ -83,7 +83,7 @@ sequenceDiagram
     Model->>ObsExceso: update()
     deactivate Model
     activate ObsExceso
-    ObserverVelocidad->>+View: muestraExceso
+    ObsExceso->>+View: muestraExceso
     deactivate ObsExceso
     activate View
     View->>-View: sout
