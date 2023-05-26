@@ -97,3 +97,7 @@ sequenceDiagram
     deactivate Controller
     View-->>-Dialog: mostrarVelocidad()
 ```
+
+-----
+
+# Examen 26/05/23 - Observer
