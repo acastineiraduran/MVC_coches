@@ -80,11 +80,11 @@ sequenceDiagram
 
     Controller->>Model: subirVelocidad()
     activate Model
-    Model->>ObserverVelocidad: update()
+    Model->>ObsExceso: update()
     deactivate Model
-    activate ObserverVelocidad
+    activate ObsExceso
     ObserverVelocidad->>+View: muestraExceso
-    deactivate ObserverVelocidad
+    deactivate ObsExceso
     activate View
     View->>-View: sout
     deactivate View
