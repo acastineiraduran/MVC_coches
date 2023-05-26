@@ -2,6 +2,11 @@ public class Controller {
     static Model miModelo = new Model();
     static View miVista = new View();
     public static void main(String[] args) {
+
+        //instancio observer
+        ObsExceso miObservador = new ObsExceso();
+        miModelo.addObserver(miObservador);
+
         IU.crearVentana();
     }
     public static void crearCoche(String modelo, String matricula){

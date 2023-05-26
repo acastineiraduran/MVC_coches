@@ -4,6 +4,8 @@ public class Dialog extends JDialog{
     private JPanel panel1;
     private JLabel eVelocidad;
 
+
+
     public Dialog(){
         setContentPane(panel1);
         setModal(true);

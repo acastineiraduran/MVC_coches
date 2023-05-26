@@ -101,3 +101,33 @@ sequenceDiagram
 -----
 
 # Examen 26/05/23 - Observer
+_commit_ indicando el inicio del examen
+
+## Observador
+Creo la clase que va a observar llamada `ObsExceso`
+```java
+public class ObsExceso implements Observer { 
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
+}
+```
+Implementa la interfaz `Observer` por lo que hay que sobreescribir el implementar
+obligatoriamente el método `update()`
+
+## Observado - _subject_
+La clase `Model` extiende de `Observable`.
+Le añadimos al método `subirVelocidad()` de esa clase los métodos:
+* `setChanged()`
+* `notifyObservers()` pasando por parámetro el objeto de la clase que se ha modificado
+
+## Observador
+Sobreescribimos el método `update()` indicando al usuario una advertencia sólo si 
+después de haber modificado la velocidad, esta supera los 120 km/h
+
+## Controller
+Instanciamos el Observer y lo met
+
+
+
