@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Observable;
 
+/**
+ * clase que hace como de bd "consultando" y "modificando" info del objeto Coche.
+ */
 public class Model extends Observable {
     static ArrayList<Coche> parking = new ArrayList<>();
 
@@ -33,7 +36,7 @@ public class Model extends Observable {
     }
 
     /**
-     *
+     * cambia la velocidad por la que le pasemos del coche que tenga la matricula que le pasemos
      * @param matricula
      * @param v nueva velocidad
      * @return velocidad modificada
@@ -56,6 +59,7 @@ public class Model extends Observable {
 
 
     /**
+     * Modifica la velocidad del coche pasado por param y notifica a los observadores del cambio
      * @param matricula
      * @return velocidad modificada
      */
@@ -67,6 +71,7 @@ public class Model extends Observable {
     }
 
     /**
+     * baja la velocidad del coche pasado por parametro
      * @param matricula
      * @return velocidad modificada
      */

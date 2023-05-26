@@ -1,3 +1,6 @@
+/**
+ * objeto principal de nuestro programa
+ */
 public class Coche {
     String matricula;
     String modelo;
